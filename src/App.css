@@ -1,38 +1,398 @@
-.App {
-  text-align: center;
+
+
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400&display=swap');
+@import '~material-design-icons/iconfont/material-icons.css';
+
+/* Root */
+:root {
+  --color-lm-primary: #fff;
+  --color-lm-background: #fff;
+  --color-lm-purple: #683fff;
+  --color-lm-text: #000;
+  --color-lm-gray: #808080;
+  --color-lm-light-gray: #f2f2f2;
+
+  --color-dm-primary: #fff;
+  --color-dm-background: #121212;
+  --color-dm-purple: #ae61fe;
+  --color-dm-text: #fff;
+  --color-dm-gray: #262626;
+  --color-dm-light-gray: #f2f2f2;
+
+  --gradient: linear-gradient(to right, #ae61fe, #683fff);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*-------------------------------------------*\
+    elements start
+\*-------------------------------------------*/
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Helvetica Neue', Arial, sans-serif;
+  
+}
+
+/*-------------------------------------------*\
+    elements end
+\*-------------------------------------------*/
+
+/*-------------------------------------------*\
+    header start
+\*-------------------------------------------*/
+.header-container {
+  padding: 50px;
+}
+
+.header {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center; 
+}
+
+.logo-text {
+  color: var(--color-lm-text);
+  margin: 0;
+  margin-left: 1rem;
+  font-size: 2.75rem;
+  font-weight: bold;
+  font-family: 'Oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Helvetica Neue', Arial, sans-serif;
+}
+
+.logo {
+  height: 3rem;
+  width: 3rem;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  font-size: 30px;
+  border-radius: 50px;
+  height: 3rem;
+  width: 30vw;
+  border: double 2px transparent;
+  border-radius: 80px;
+  background-image: linear-gradient(white, white), radial-gradient(circle at top right, #ae61fe,#683fff);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.search-input {
+  margin: auto;
+  font-size: 1.5rem;
+  height: 2rem;
+  width: 26vw;
+  border-style: none;
+  color: var(--color-lm-purple);
+}
+
+.search-input::placeholder {
+  color: var(--color-lm-purple); 
+}
+
+.search-input:focus {
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+}
+
+.search-btn {
+  margin-left: 1rem;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50px;
+  border-style: none;
+  background-image: var(--gradient);
+}
+
+
+.search-icon {
+  height: 1.75rem;
+  width: 1.75rem;
+}
+
+.github-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.github-img {
+  margin: 0;
+  height: 1.4rem;
+  width: 1.4rem;
+}
+
+.github-text {
+  color: var(--color-lm-text);
+  padding-left: 0.5rem;
+  margin: 0;
+  font-size: 1.45rem;
+  font-family: 'Oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Helvetica Neue', Arial, sans-serif;
+}
+
+@media only screen and (max-width: 1000px) {
+  .header {
+    flex-direction: column;
+  }
+  .search-container {
+    margin: 3rem;
+  }
+  
+}
+
+/*-------------------------------------------*\
+    header end
+\*-------------------------------------------*/
+
+/*-------------------------------------------*\
+    tab selector start
+\*-------------------------------------------*/
+
+.tab-container {
+  margin-top: 4rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.tab { 
+  width: 50%;
+  text-align: center; 
+  cursor: pointer;
+}
+
+.tab-header {
+  padding-bottom: 25px;
+  font-size: 80px;
+  font-weight: bold;
+  font-family: 'Oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Helvetica Neue', Arial, sans-serif;
+}
+.tab-header:hover {
+  color: var(--color-dm-purple);
+  border-bottom: 1px solid #000;
+}
+
+.tab-header {
+  color: var(--color-lm-text);
+}
+
+.tab-selected {
+  color: var(--color-lm-purple);  
+  border-bottom: 1px solid var(--color-lm-gray); 
+}
+
+@media only screen and (max-width: 1000px) {
+  .tab-header {
+    font-size: 7vw;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*-------------------------------------------*\
+    tab selector end
+\*-------------------------------------------*/
+
+/*-------------------------------------------*\
+    artist cell start
+
+    This cell contains artist, album, and 
+    album cover.
+\*-------------------------------------------*/
+
+.artist-cell {
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.artist-cell-text {
+  margin-left: 15px;
+  height: 45px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-content: space-between;
+  justify-content: space-around;
+}
+
+.artist-cell h2 {
+  margin: 0px;
+  font-weight: 400px;
+  font-size: 1.1rem;
+}
+
+.artist-cell h3 {
+  margin: 0px;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.album-img {
+  height: 45px; 
+}
+
+/*-------------------------------------------*\
+    artist cell end
+\*-------------------------------------------*/
+
+/*-------------------------------------------*\
+    header results start
+\*-------------------------------------------*/
+
+.header-labels-container {
+  margin-top: 200px;
+}
+
+.header-labels {
+  text-align: center;
+  color: var(--color-lm-text);
+  font-size: 80px;
+  font-weight: bold;
+  font-family: 'Oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Helvetica Neue', Arial, sans-serif;
+}
+
+/*-------------------------------------------*\
+    header results end
+\*-------------------------------------------*/
+
+/*-------------------------------------------*\
+    print button start
+\*-------------------------------------------*/
+
+.print-btn-container {
+  margin: 100px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.print-btn {
+  font-weight: normal;
+  font-size: 30px;
+  color: var(--color-lm-primary);
+  width: 240px;
+  height: 70px;
+  background-image: var(--gradient);
+  border-radius: 50px;
+  border-style: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/*-------------------------------------------*\
+    print button end
+\*-------------------------------------------*/
+
+/*-------------------------------------------*\
+    label sheet styling start
+
+    This contains all the labels for printing.
+\*-------------------------------------------*/
+
+.label-container {
+  margin: auto;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+.label-grid {
+  display: grid;
+  grid-template-columns: 2.575in 2.575in 2.575in;
+  grid-template-rows: 0.9in 0.9in 0.9in 0.9in 0.9in 0.9in 0.9in 0.9in 0.9in 0.9in;
+  grid-column-gap: 0.125in;
+  grid-row-gap: 0.1in;
+  height: 11in;
+  width: 8.5in;
+  align-items: center;
+  justify-items: center; 
+  justify-content: center;
+  align-content: center;
+}
+
+.label {
+  height: 1in;
+  width: 2.575in;
+  border: 1px solid var(--color-lm-purple);
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+
+.artist {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.album {
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.price {
+  font-size: 9px;
+  font-weight: normal;
+}
+
+.condition {
+  font-size: 9px;
+  font-weight: normal;
+}
+
+.label-inner {
+  padding-left: 2px;
+  padding-right: 2px;
+  height: 1in;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media print {
+  .noprint {display:none; opacity: 0;}
+  .label {border: none;}
+}
+
+/*-------------------------------------------*\
+    label sheet styling end
+\*-------------------------------------------*/
+
+.hide {
+  display:none;
+  opacity: 0;
+}
+
+
+
+
