@@ -18,7 +18,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { visuallyHidden } from '@material-ui/utils';
 import ArtistCell from './ArtistCell';
 
-const EnhancedTable = ({ newData, updateLabelList, selectedList}) => {
+const EnhancedTable = ({ newData, updateLabelList, selectedList, rowsPerPage, setRowsPerPage}) => {
 
 	// Define header cells
 	const headCells = [
@@ -59,6 +59,7 @@ const EnhancedTable = ({ newData, updateLabelList, selectedList}) => {
 		setRows(newData);
 	}, [newData]);
 
+	// Descending comparator
 	function descendingComparator(a, b, orderBy) {
 		if (b[orderBy] < a[orderBy]) {
 			return -1;
@@ -69,6 +70,7 @@ const EnhancedTable = ({ newData, updateLabelList, selectedList}) => {
 		return 0;
 	}
 
+	// Get comparator
 	function getComparator(order, orderBy) {
 		return order === 'desc'
 			? (a, b) => descendingComparator(a, b, orderBy)
@@ -92,7 +94,6 @@ const EnhancedTable = ({ newData, updateLabelList, selectedList}) => {
 		const createSortHandler = (property) => (event) => {
 			onRequestSort(event, property);
 		};
-
 		return (
 			<TableHead>
 				<TableRow>
@@ -132,7 +133,7 @@ const EnhancedTable = ({ newData, updateLabelList, selectedList}) => {
 			</TableHead>
 		);
 	}
-
+	// Set table head prop types
 	EnhancedTableHead.propTypes = {
 		numSelected: PropTypes.number.isRequired,
 		onRequestSort: PropTypes.func.isRequired,
@@ -142,6 +143,7 @@ const EnhancedTable = ({ newData, updateLabelList, selectedList}) => {
 		rowCount: PropTypes.number.isRequired,
 	};
 
+	// Table tool bar
 	const EnhancedTableToolbar = ({ numSelected }) => {
 		return (
 			<Toolbar
@@ -175,23 +177,26 @@ const EnhancedTable = ({ newData, updateLabelList, selectedList}) => {
 		);
 	};
 
+	// Table tool bar prop types
 	EnhancedTableToolbar.propTypes = {
 		numSelected: PropTypes.number.isRequired,
 	};
 
+	// Component states
 	const [order, setOrder] = React.useState('asc');
 	const [orderBy, setOrderBy] = React.useState('test');
 	const [selected, setSelected] = React.useState(selectedList);
 	const [page, setPage] = React.useState(0);
-	const [rowsPerPage, setRowsPerPage] = React.useState(5);
 	const [rows, setRows] = React.useState([]);
 
+	// Hanlde request sort
 	const handleRequestSort = (event, property) => {
 		const isAsc = orderBy === property && order === 'asc';
 		setOrder(isAsc ? 'desc' : 'asc');
 		setOrderBy(property);
 	};
 
+	// Hanlde select all
 	const handleSelectAllClick = (event) => {
 		if (event.target.checked) {
 			const newSelecteds = rows.map((n) => n);
@@ -203,6 +208,7 @@ const EnhancedTable = ({ newData, updateLabelList, selectedList}) => {
 		updateLabelList([]);
 	};
 
+	// Handle click
 	const handleClick = (event, item) => {
 		const selectedIndex = selected.map(function(e) { return e.id; }).indexOf(item.id);
 		let newSelected = [];
@@ -225,10 +231,12 @@ const EnhancedTable = ({ newData, updateLabelList, selectedList}) => {
 
 	};
 
+	// Handle change page
 	const handleChangePage = (event, newPage) => {
 		setPage(newPage);
 	};
 
+	// Handle change rows per page
 	const handleChangeRowsPerPage = (event) => {
 		setRowsPerPage(parseInt(event.target.value, 10));
 		setPage(0);

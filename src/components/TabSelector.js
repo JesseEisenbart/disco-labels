@@ -1,27 +1,26 @@
-import { useState } from "react";
 
-const TabSelector = ({ currentTab, setTab, select, print, mode, darkMode, lightMode }) => {
+const TabSelector = ({ currentTab, setTab, catalog, label}) => {
     function setCurrentTab() {
-        if (currentTab === select) {
-            setTab(print);
+        if (currentTab === catalog) {
+            setTab(label);
         } else {
-            setTab(select);
+            setTab(catalog);
         }
     } 
     return (
         <div className="tab-container">
-            <div onClick={setCurrentTab} className="select-tab tab">
-                <h1 className={`tab-header select-header ${
-                    (currentTab === select) 
+            <div onClick={setCurrentTab} className="tab">
+                <h1 className={`tab-header ${
+                    (currentTab === catalog) 
                         ? "tab-selected" 
-                        : "tab-header"
+                        : ""
                 }`}>CATALOG</h1>
             </div>
-            <div onClick={setCurrentTab} className="print-tab tab">
-                <h1 className={`tab-header print-header ${
-                    (currentTab === print) 
+            <div onClick={setCurrentTab} className="tab">
+                <h1 className={`tab-header ${
+                    (currentTab === label) 
                             ? "tab-selected" 
-                            : "tab-header"
+                            : ""
                 }`}>LABELS</h1>
             </div>  
         </div>

@@ -1,6 +1,6 @@
 import Label from "./Label";
 
-const LabelGrid = ({list, mode, darkMode, lightMode}) => {
+const LabelGrid = ({ list }) => {
     let array = [];
     let wrapperArray = [];
     let grid = [];
@@ -9,6 +9,16 @@ const LabelGrid = ({list, mode, darkMode, lightMode}) => {
     if (list !== [] && list !== undefined) {
         // Push data from list into new array
         for (var i=0; i < list.length; i++) {
+
+            let QRSrc = "";
+
+            // Generate QR code image source
+            if (list[i].url !== undefined) {
+                if (list[i].url.length > 0) {
+                    QRSrc = "https://api.qrserver.com/v1/create-qr-code/?size=70x70&data="+list[i].url; 
+                }
+            } 
+
             array.push(
                 <Label 
                     artist={list[i].artist} 
@@ -17,10 +27,9 @@ const LabelGrid = ({list, mode, darkMode, lightMode}) => {
                     currency={list[i].currency} 
                     mediaCondition={list[i].mediaCondition} 
                     sleeveCondition={list[i].sleeveCondition}  
-                    url={list[i].url} key={list[i].id} 
-                    mode={mode} 
-                    darkMode={darkMode} 
-                    lightMode={lightMode}
+                    url={list[i].url} 
+                    key={list[i].id} 
+                    QRSrc={QRSrc}
                 />
             )    
         }

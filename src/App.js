@@ -4,10 +4,11 @@ import Header from './components/Header';
 import PrintButton from './components/PrintButton';
 import TabSelector from './components/TabSelector';
 import './App.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import fetchInventory from './fetchData';
 import { createTheme, ThemeProvider } from '@material-ui/core';
 
+// Create Material UI custom theme
 const theme = createTheme({
   palette: {
     primary: {
@@ -32,14 +33,16 @@ const theme = createTheme({
   shadows: ["none"]
 });
 
-const SELECT_TAB = "select";
-const PRINT_TAB = "print";
+// Selection tab constants
+const CATALOG_TAB = "select";
+const LABEL_TAB = "print";
 
 const App = () => {
   const [currentInput, setCurrentInput] = useState('');
   const [labelList, setLabelList] = useState([]);
   const [newData, setNewData] = useState([]);
-  const [tab, setTab] = useState(SELECT_TAB);
+  const [tab, setTab] = useState(CATALOG_TAB);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   // Populates array with formatted data
   function populateArray(data) {
@@ -63,8 +66,8 @@ const App = () => {
         imageUrl = data[i].release.thumbnail;
         tempArr.push(createData(name, artist, album, format, mediaNumeric, sleeveNumeric, mediaCondition, sleeveCondition, price, currency, url, id, imageUrl));
       }
-      console.log(data);
-      console.log(tempArr);
+      //console.log(data); // Debugging 
+      //console.log(tempArr); // Debugging 
       return tempArr;
     }
   }
@@ -75,7 +78,7 @@ const App = () => {
     
   }
 
-  // Test condition
+  // Set a numeric condition for each media/sleeve
   function numericCondition(condition) {
     let conditions = [
       /0/,
@@ -117,24 +120,23 @@ const App = () => {
   return (
     <div>
       <div className="noprint">   
-        <Header handleSubmit={searchInventory} updateInput={setCurrentInput}/>
-        <TabSelector currentTab={tab} setTab={setTab} select={SELECT_TAB} print={PRINT_TAB} />
+        <Header handleSubmit={searchInventory} updateInput={setCurrentInput} updateLabelList={handleLabelUpdate}/>
+        <TabSelector currentTab={tab} setTab={setTab} catalog={CATALOG_TAB} label={LABEL_TAB}/>
       </div>  
-          { tab === SELECT_TAB ? 
-            <div> 
-              <ThemeProvider theme={theme}>
-                <EnhancedTable className="noprint" newData={newData} updateLabelList={handleLabelUpdate} selectedList={labelList} />
-              </ThemeProvider>
-            </div>
-          : 
-            <div>
-              <div className="noprint">   
-                <PrintButton show={true}/>
-              </div>   
-              <LabelGrid className="print hide" list={labelList} />
-            </div> 
-          }
-             
+      { tab === CATALOG_TAB ? 
+        <div> 
+          <ThemeProvider theme={theme}>
+            <EnhancedTable className="noprint" newData={newData} updateLabelList={handleLabelUpdate} selectedList={labelList} rowsPerPage={rowsPerPage} setRowsPerPage={setRowsPerPage}/>
+          </ThemeProvider>
+        </div>
+      : 
+        <div>
+          <div className="noprint">   
+            <PrintButton length={labelList.length}/>
+          </div>   
+          <LabelGrid className="print" list={labelList} />
+        </div> 
+      }           
     </div>
   );
 }

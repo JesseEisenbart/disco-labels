@@ -1,5 +1,4 @@
 
-
 const ArtistCell = ({artist, album, img}) => {
     return (
         <div className="artist-cell">

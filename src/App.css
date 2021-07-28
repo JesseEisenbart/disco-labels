@@ -6,21 +6,14 @@
 
 /* Root */
 :root {
-  --color-lm-primary: #fff;
-  --color-lm-background: #fff;
-  --color-lm-purple: #683fff;
-  --color-lm-text: #000;
-  --color-lm-gray: #808080;
-  --color-lm-light-gray: #f2f2f2;
-
-  --color-dm-primary: #fff;
-  --color-dm-background: #121212;
-  --color-dm-purple: #ae61fe;
-  --color-dm-text: #fff;
-  --color-dm-gray: #262626;
-  --color-dm-light-gray: #f2f2f2;
-
-  --gradient: linear-gradient(to right, #ae61fe, #683fff);
+  --color-primary: #fff;
+  --color-background: #fff;
+  --color-purple: #683fff;
+  --color-light-purple: #ae61fe;
+  --color-text: #000;
+  --color-gray: #808080;
+  --color-light-gray: #f2f2f2;
+  --gradient: linear-gradient(to right, var(--color-light-purple), var(--color-purple));
 }
 
 /*-------------------------------------------*\
@@ -41,7 +34,11 @@ html {
 
 body {
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Helvetica Neue', Arial, sans-serif;
-  
+  background-color: var(--color-background);
+}
+
+a {
+  text-decoration: none;
 }
 
 /*-------------------------------------------*\
@@ -72,7 +69,7 @@ body {
 }
 
 .logo-text {
-  color: var(--color-lm-text);
+  color: var(--color-text);
   margin: 0;
   margin-left: 1rem;
   font-size: 2.75rem;
@@ -100,7 +97,7 @@ body {
   width: 30vw;
   border: double 2px transparent;
   border-radius: 80px;
-  background-image: linear-gradient(white, white), radial-gradient(circle at top right, #ae61fe,#683fff);
+  background-image: linear-gradient(white, white), radial-gradient(circle at top right, var(--color-light-purple), var( --color-purple));
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
@@ -111,11 +108,11 @@ body {
   height: 2rem;
   width: 26vw;
   border-style: none;
-  color: var(--color-lm-purple);
+  color: var(--color-purple);
 }
 
 .search-input::placeholder {
-  color: var(--color-lm-purple); 
+  color: var(--color-purple); 
 }
 
 .search-input:focus {
@@ -133,7 +130,6 @@ body {
   border-style: none;
   background-image: var(--gradient);
 }
-
 
 .search-icon {
   height: 1.75rem;
@@ -154,11 +150,20 @@ body {
 }
 
 .github-text {
-  color: var(--color-lm-text);
+  color: var(--color-text);
   padding-left: 0.5rem;
   margin: 0;
   font-size: 1.45rem;
   font-family: 'Oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Helvetica Neue', Arial, sans-serif;
+}
+
+@media only screen and (max-width: 800px) {
+  .search-input {
+    font-size: 1.3rem;
+    height: 1.5rem;
+    width: 26vw;
+  }
+
 }
 
 @media only screen and (max-width: 1000px) {
@@ -199,17 +204,17 @@ body {
   font-family: 'Oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Helvetica Neue', Arial, sans-serif;
 }
 .tab-header:hover {
-  color: var(--color-dm-purple);
+  color: var(--color-light-purple);
   border-bottom: 1px solid #000;
 }
 
 .tab-header {
-  color: var(--color-lm-text);
+  color: var(--color-text);
 }
 
 .tab-selected {
-  color: var(--color-lm-purple);  
-  border-bottom: 1px solid var(--color-lm-gray); 
+  color: var(--color-purple);  
+  border-bottom: 1px solid var(--color-gray); 
 }
 
 @media only screen and (max-width: 1000px) {
@@ -266,26 +271,6 @@ body {
 \*-------------------------------------------*/
 
 /*-------------------------------------------*\
-    header results start
-\*-------------------------------------------*/
-
-.header-labels-container {
-  margin-top: 200px;
-}
-
-.header-labels {
-  text-align: center;
-  color: var(--color-lm-text);
-  font-size: 80px;
-  font-weight: bold;
-  font-family: 'Oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Helvetica Neue', Arial, sans-serif;
-}
-
-/*-------------------------------------------*\
-    header results end
-\*-------------------------------------------*/
-
-/*-------------------------------------------*\
     print button start
 \*-------------------------------------------*/
 
@@ -299,7 +284,7 @@ body {
 .print-btn {
   font-weight: normal;
   font-size: 30px;
-  color: var(--color-lm-primary);
+  color: var(--color-primary);
   width: 240px;
   height: 70px;
   background-image: var(--gradient);
@@ -343,11 +328,9 @@ body {
 .label {
   height: 1in;
   width: 2.575in;
-  border: 1px solid var(--color-lm-purple);
+  border: 1px solid var(--color-purple);
   border-radius: 10px;
-  background-color: #fff;
 }
-
 
 .artist {
   font-size: 10px;
@@ -389,10 +372,5 @@ body {
 \*-------------------------------------------*/
 
 .hide {
-  display:none;
-  opacity: 0;
+  display: none;
 }
-
-
-
-

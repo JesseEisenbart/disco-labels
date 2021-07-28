@@ -1,15 +1,5 @@
 
-const Label = ({artist, album, price, currency, mediaCondition, sleeveCondition, url, mode, darkMode, lightMode}) => {
-
-    let imgSrc = "";
-
-    // Generate QR code image source
-    if (url !== undefined) {
-        if (url.length > 0) {
-            imgSrc = "https://api.qrserver.com/v1/create-qr-code/?size=70x70&data="+url; 
-        }
-    } 
-    
+const Label = ({artist, album, price, currency, mediaCondition, sleeveCondition, QRSrc}) => { 
     return (
         <div className="label"> 
             <div className="label-inner">
@@ -21,7 +11,7 @@ const Label = ({artist, album, price, currency, mediaCondition, sleeveCondition,
                     <div className="condition">Sleeve {sleeveCondition}</div>
                 </div>
                 <div className="qr-img">
-                    <img src={imgSrc} alt="QR code"/>
+                    <img src={QRSrc} alt="QR code"/>
                 </div>
             </div>
         </div>
