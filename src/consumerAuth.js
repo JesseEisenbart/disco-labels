@@ -1,4 +1,4 @@
 
 // Secret authentication informaion
-export const CONSUMER_KEY = "VsywAnXgAIktuzBmGNWt";
-export const CONSUMER_SECRET = "pmYfmmKfToSvvekxOlAAFBAAnJzlSpvA";
+export const CONSUMER_KEY = "";
+export const CONSUMER_SECRET = "";
