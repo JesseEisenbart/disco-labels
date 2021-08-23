@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/disco-labels/static/css/main.ab59b949.chunk.css",
+    "main.js": "/disco-labels/static/js/main.a02fe4a3.chunk.js",
+    "main.js.map": "/disco-labels/static/js/main.a02fe4a3.chunk.js.map",
+    "runtime-main.js": "/disco-labels/static/js/runtime-main.9c9456aa.js",
+    "runtime-main.js.map": "/disco-labels/static/js/runtime-main.9c9456aa.js.map",
+    "static/css/2.c5e93fa1.chunk.css": "/disco-labels/static/css/2.c5e93fa1.chunk.css",
+    "static/js/2.40adcb7e.chunk.js": "/disco-labels/static/js/2.40adcb7e.chunk.js",
+    "static/js/2.40adcb7e.chunk.js.map": "/disco-labels/static/js/2.40adcb7e.chunk.js.map",
+    "index.html": "/disco-labels/index.html",
+    "static/css/2.c5e93fa1.chunk.css.map": "/disco-labels/static/css/2.c5e93fa1.chunk.css.map",
+    "static/css/main.ab59b949.chunk.css.map": "/disco-labels/static/css/main.ab59b949.chunk.css.map",
+    "static/js/2.40adcb7e.chunk.js.LICENSE.txt": "/disco-labels/static/js/2.40adcb7e.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/disco-labels/static/media/MaterialIcons-Regular.cff684e5.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9c9456aa.js",
+    "static/css/2.c5e93fa1.chunk.css",
+    "static/js/2.40adcb7e.chunk.js",
+    "static/css/main.ab59b949.chunk.css",
+    "static/js/main.a02fe4a3.chunk.js"
+  ]
+}
