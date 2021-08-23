@@ -1,5 +1,4 @@
-import Logo from '../Logo.png';
-import GitHub from '../GitHub.png';
+import Logo from '../Images/Logo.png';
 import Searchbar from './Searchbar.js';
 
 const Header = ({ handleSubmit, updateInput, updateLabelList}) => {
@@ -13,7 +12,7 @@ const Header = ({ handleSubmit, updateInput, updateLabelList}) => {
                 <Searchbar handleSubmit={handleSubmit} updateInput={updateInput} updateLabelList={updateLabelList}/>
                 <a className="github-link" href="https://github.com/JesseEisenbart/disco-labels">
                     <div className="github-container">                   
-                        <img src={GitHub} alt="GitHub logo" className="github-img"/><h3 className="github-text">VIEW ON GITHUB</h3>                   
+                    <i class="fab fa-github github-icon"></i><h3 className="github-text">VIEW ON GITHUB</h3>                   
                     </div>
                 </a>
             </div>

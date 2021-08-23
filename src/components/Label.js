@@ -1,4 +1,3 @@
-
 const Label = ({artist, album, price, currency, mediaCondition, sleeveCondition, QRSrc}) => { 
     return (
         <div className="label"> 

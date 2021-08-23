@@ -74,8 +74,7 @@ const App = () => {
 
   // Creates an object with row data
   function createData(name, artist, album, format, mediaNumeric, sleeveNumeric, mediaCondition, sleeveCondition, price, currency, url, id, imageUrl) {
-    return {name, artist, album, format, mediaNumeric, sleeveNumeric, mediaCondition, sleeveCondition, price, currency, url, id, imageUrl};
-    
+    return {name, artist, album, format, mediaNumeric, sleeveNumeric, mediaCondition, sleeveCondition, price, currency, url, id, imageUrl}; 
   }
 
   // Set a numeric condition for each media/sleeve

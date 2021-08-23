@@ -131,9 +131,14 @@ a {
   background-image: var(--gradient);
 }
 
+.search-btn:hover {
+  cursor:pointer;
+}
+
 .search-icon {
-  height: 1.75rem;
-  width: 1.75rem;
+  color: var(--color-primary);
+  font-size: 1.35rem;
+  font-weight: 100px;
 }
 
 .github-container {
@@ -143,10 +148,11 @@ a {
   align-items: center;
 }
 
-.github-img {
+.github-icon {
+  color: var(--color-text);
   margin: 0;
-  height: 1.4rem;
-  width: 1.4rem;
+  font-size: 1.45rem;
+  font-weight: 100px;
 }
 
 .github-text {
@@ -290,6 +296,10 @@ a {
   background-image: var(--gradient);
   border-radius: 50px;
   border-style: none;
+}
+
+.print-btn:hover {
+  cursor:pointer;
 }
 
 /*-------------------------------------------*\
