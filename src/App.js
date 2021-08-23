@@ -4,7 +4,7 @@ import Header from './components/Header';
 import PrintButton from './components/PrintButton';
 import TabSelector from './components/TabSelector';
 import './App.css';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import fetchInventory from './fetchData';
 import { createTheme, ThemeProvider } from '@material-ui/core';
 
