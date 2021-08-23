@@ -1,8 +1,8 @@
-
 import { useEffect, useState } from "react"
 
 const PrintButton = ({ length }) => {
     const [loading, setLoading] = useState(true);
+
     // Update rows when new data is received
     useEffect(() => {
         var delayInMilliseconds = 100*length; //2 seconds
